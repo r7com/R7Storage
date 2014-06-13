@@ -63,7 +63,7 @@ var R7Storage = (function(){
      * @return {Boolean} Saved or not
     **/
 		set: function(key, value) {
-			if(!key || !value) {
+			if(!key || typeof value === "undefined") {
 				throw new Error("R7Storage.set(key, value): You need to enter the {key} and the {value}!");
 			}
 
@@ -129,6 +129,8 @@ var R7Storage = (function(){
 			} else {
 				localStorage.removeItem(key);
 			}
+
+			return true;
 		},
 
 		/**
