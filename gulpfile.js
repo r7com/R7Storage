@@ -2,26 +2,26 @@ var gulp  = require('gulp');
 var karma = require('gulp-karma');
 
 var GulpApp = {
-	testFiles: [
-	  'src/*.js',
-	  'spec/*.js'
-	],
+  testFiles: [
+    'src/*.js',
+    'spec/*.js'
+  ],
 
-	action: "run",
+  action: "run",
 
-	test: function() {
-		return gulp.src(GulpApp.testFiles).pipe(
-			karma({
-				configFile: 'karma.conf.js',
-				action: GulpApp.action
-			})
-		);
-	},
+  test: function() {
+    return gulp.src(GulpApp.testFiles).pipe(
+      karma({
+        configFile: 'karma.conf.js',
+        action: GulpApp.action
+      })
+    );
+  },
 
-	default: function() {
-		GulpApp.action = "watch";
-		return GulpApp.test();
-	}
+  default: function() {
+    GulpApp.action = "watch";
+    return GulpApp.test();
+  }
 };
 
 gulp.task('test', GulpApp.test);
