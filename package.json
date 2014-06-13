@@ -4,20 +4,14 @@
   "description": "Storage data in client side by using localStorage with fallback to cookies!",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "~3.8.0",
-    "gulp-jasmine": "~0.2.0"
+    "gulp": "~3.8.0"
   },
-  "devDependencies": {},
-  "keywords": [
-    "r7",
-    "r7.com",
-    "storage",
-    "r7storage",
-    "localstorage",
-    "cookies",
-    "cookies",
-    "localstorage"
-  ],
+  "devDependencies": {
+    "karma": "~0.12.16",
+    "gulp-karma": "0.0.4",
+    "karma-jasmine": "~0.1.5",
+    "karma-phantomjs-launcher": "~0.1.4"
+  },
   "author": "Guilherme Pontes",
   "license": "BSD"
 }
