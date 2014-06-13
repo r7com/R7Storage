@@ -17,7 +17,7 @@ R7Storage
 
 	R7Storage.delete("user"); //return true
 	R7Storage.delete("userFail"); //return false
-	R7Storage.delete(); //return Error
+	R7Storage.delete(); //return **Error**
 
 	R7Storage.has("user"); //return true
 	R7Storage.has("userFail"); //return false
@@ -25,16 +25,16 @@ R7Storage
 ```
 
 ### Browser Support
-* Internet Explorer:6+
-* Chrome: All versions
-* Firefox: All versions
+* Internet Explorer: **6+**
+* Chrome: **All versions**
+* Firefox: **All versions**
 
 ### Contribute
-* Fork it!
+* **Fork it!**
 * Create your feature branch: git checkout -b my-new-feature
 * Commit your changes: git commit -A 'Add some feature'
 * Push to the branch: git push origin my-new-feature
-* Submit a pull request :D
+* **Submit a pull request :D**
 
 ### Running tests
 * Run ```npm install```
