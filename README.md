@@ -1,7 +1,5 @@
 R7Storage
 =========
-R7Storage handles cross-browser data storage in the client side!
-
 [![Code Climate](https://codeclimate.com/github/r7com/R7Storage.png)](https://codeclimate.com/github/r7com/R7Storage)
 
 ### Usage
