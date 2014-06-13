@@ -13,5 +13,5 @@
     "karma-phantomjs-launcher": "~0.1.4"
   },
   "author": "Guilherme Pontes",
-  "license": "BSD"
+  "license": "Apache v2 License"
 }
