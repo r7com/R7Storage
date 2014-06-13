@@ -1,0 +1,23 @@
+{
+  "name": "r7storage",
+  "version": "0.1.0",
+  "description": "Storage data in client side by using localStorage with fallback to cookies!",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "~3.8.0",
+    "gulp-jasmine": "~0.2.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "r7",
+    "r7.com",
+    "storage",
+    "r7storage",
+    "localstorage",
+    "cookies",
+    "cookies",
+    "localstorage"
+  ],
+  "author": "Guilherme Pontes",
+  "license": "BSD"
+}
