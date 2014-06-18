@@ -5,22 +5,19 @@ var GulpApp = {
   testFiles: [
     'src/*.js',
     'spec/*.js'
-  ],
 
-  action: "run",
 
-  test: function() {
+  test: function(action) {
     return gulp.src(GulpApp.testFiles).pipe(
       karma({
         configFile: 'karma.conf.js',
-        action: GulpApp.action
+        action: action || "run"
       })
     );
   },
 
   default: function() {
-    GulpApp.action = "watch";
-    return GulpApp.test();
+    return GulpApp.test("watch");
   }
 };
 
