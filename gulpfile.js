@@ -6,7 +6,6 @@ var GulpApp = {
     'src/*.js',
     'spec/*.js'
 
-
   test: function(action) {
     return gulp.src(GulpApp.testFiles).pipe(
       karma({
