@@ -1,10 +1,11 @@
-var gulp  = require('gulp');
-var karma = require('gulp-karma');
-var compressor = require('gulp-compressor');
+var gulp   = require('gulp'),
+    karma  = require('gulp-karma'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename');
 
 var GulpApp = {
   testFiles: [
-    'src/*.js',
+    'src/r7storage.js',
     'spec/*.js'
   ],
 
@@ -22,8 +23,16 @@ var GulpApp = {
   default: function() {
     GulpApp.action = "watch";
     return GulpApp.test();
+  },
+
+  build: function() {
+    return gulp.src(GulpApp.testFiles[0])
+      .pipe(uglify())
+      .pipe(rename({ suffix: '.min' }))
+      .pipe(gulp.dest('src/'));
   }
 };
 
 gulp.task('test', GulpApp.test);
 gulp.task('default', GulpApp.default);
+gulp.task('build', ['test'], GulpApp.build);
