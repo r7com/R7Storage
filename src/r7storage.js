@@ -9,9 +9,9 @@
 *
 *
 * @example
-*   R7Storage.set("user", "Guilherme"); //return true
-*   R7Storage.set("user"); //return Error
-*   R7Storage.set(); //return Error
+*   R7Storage.setItem("user", "Guilherme"); //return true
+*   R7Storage.setItem("user"); //return Error
+*   R7Storage.setItem(); //return Error
 *
 *   R7Storage.get("user"); //return "Guilherme"
 *   R7Storage.get("user2"); //return false
@@ -62,7 +62,7 @@ var R7Storage = (function(){
      * @param {String} value
      * @return {Boolean} Saved or not
     **/
-    set: function(key, value) {
+    setItem: function(key, value) {
       if(!key || typeof value === "undefined") {
         throw new Error("R7Storage.set(key, value): You need to enter the {key} and the {value}!");
       }
