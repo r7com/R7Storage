@@ -1,10 +1,10 @@
 describe("R7Storage", function() {
   describe("R7Storage Getting Values", function() {
     beforeEach(function(){
-      R7Storage.set("name", "Guilherme");
-      R7Storage.set("anumber", 123);
-      R7Storage.set("aboolean", false);
-      R7Storage.set(123, "onetwothree");
+      R7Storage.setItem("name", "Guilherme");
+      R7Storage.setItem("anumber", 123);
+      R7Storage.setItem("aboolean", false);
+      R7Storage.setItem(123, "onetwothree");
     });
 
     it("Should return properly the string value", function() {

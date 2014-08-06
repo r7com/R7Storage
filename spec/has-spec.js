@@ -1,8 +1,8 @@
 describe("R7Storage", function() {
   describe("R7Storage Has", function() {
     beforeEach(function(){
-      R7Storage.set("name", "Guilherme");
-      R7Storage.set(123, "Guilherme");
+      R7Storage.setItem("name", "Guilherme");
+      R7Storage.setItem(123, "Guilherme");
     });
 
     it("Should match correctly if exists the data stored by using the key", function() {

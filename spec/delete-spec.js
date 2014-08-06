@@ -1,8 +1,8 @@
 describe("R7Storage", function() {
   describe("R7Storage Getting Values", function() {
     beforeEach(function(){
-      R7Storage.set("name", "Guilherme");
-      R7Storage.set(123, "onetwothree");
+      R7Storage.setItem("name", "Guilherme");
+      R7Storage.setItem(123, "onetwothree");
     });
 
     it("Should remove properly the string value by using the key", function() {

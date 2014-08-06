@@ -4,8 +4,8 @@ describe("R7Storage", function() {
       expect(typeof R7Storage.supportsLocalStorage).toBe("function");
     });
 
-    it("Must have set() method", function() {
-      expect(typeof R7Storage.set).toBe("function");
+    it("Must have setItem() method", function() {
+      expect(typeof R7Storage.setItem).toBe("function");
     });
 
     it("Must have get() method", function() {
