@@ -2,14 +2,19 @@ R7Storage
 =========
 [![Code Climate](https://codeclimate.com/github/r7com/R7Storage.png)](https://codeclimate.com/github/r7com/R7Storage)
 
+### About
+R7Storage is a little library for data storage in the client side.
+It uses localStorage with fallback to cookies.
+
+
 ### Usage
 * Clone the repo ```git clone git@github.com:r7com/R7Storage.git```
 
 
 ```javascript
-	R7Storage.set("user", "Guilherme"); //return true
-	R7Storage.set("user"); //return Error
-	R7Storage.set(); //return Error
+	R7Storage.setItem("user", "Guilherme"); //return true
+	R7Storage.setItem("user"); //return Error
+	R7Storage.setItem(); //return Error
 
 	R7Storage.get("user"); //return "Guilherme"
 	R7Storage.get("user2"); //return false
