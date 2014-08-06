@@ -44,3 +44,8 @@ It uses localStorage with fallback to cookies.
 ### Running tests
 * Run ```npm install```
 * Run ```gulp test```
+
+### Building file
+* Run ```npm install```
+* Run ```gulp build```
+
