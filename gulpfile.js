@@ -1,5 +1,6 @@
 var gulp  = require('gulp');
 var karma = require('gulp-karma');
+var compressor = require('gulp-compressor');
 
 var GulpApp = {
   testFiles: [
