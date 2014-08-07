@@ -1,6 +1,8 @@
 R7Storage
 =========
+[![TravisCI](https://travis-ci.org/r7com/R7Storage.svg?branch=master)](https://travis-ci.org/r7com/R7Storage)
 [![Code Climate](https://codeclimate.com/github/r7com/R7Storage.png)](https://codeclimate.com/github/r7com/R7Storage)
+
 
 ### About
 R7Storage is a little library for data storage in the client side.
