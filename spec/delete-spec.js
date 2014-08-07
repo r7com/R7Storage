@@ -1,5 +1,5 @@
 describe("[[R7Storage]]", function() {
-  describe("[Getting Values]", function() {
+  describe("[Deleting Values]", function() {
     beforeEach(function(){
       R7Storage.setItem("name", "Guilherme");
       R7Storage.setItem(123, "onetwothree");

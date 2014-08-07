@@ -1,5 +1,5 @@
-describe("R7Storage", function() {
-  describe("R7Storage Scope", function() {
+describe("[[R7Storage]]", function() {
+  describe("[Scope]", function() {
     it("Must have supportsLocalStorage() method", function() {
       expect(typeof R7Storage.supportsLocalStorage).toBe("function");
     });

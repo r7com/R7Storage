@@ -1,5 +1,5 @@
-describe("R7Storage", function() {
-  describe("R7Storage Has", function() {
+describe("[[R7Storage]]", function() {
+  describe("[Detecting Values]", function() {
     beforeEach(function(){
       R7Storage.setItem("name", "Guilherme");
       R7Storage.setItem(123, "Guilherme");
