@@ -13,9 +13,9 @@
 *   R7Storage.setItem("user"); //return Error
 *   R7Storage.setItem(); //return Error
 *
-*   R7Storage.get("user"); //return "Guilherme"
-*   R7Storage.get("user2"); //return false
-*   R7Storage.get(); //return Error
+*   R7Storage.getItem("user"); //return "Guilherme"
+*   R7Storage.getItem("user2"); //return false
+*   R7Storage.getItem(); //return Error
 *
 *   R7Storage.deleteItem("user"); //return true
 *   R7Storage.deleteItem("userFail"); //return false
@@ -57,7 +57,7 @@ var R7Storage = (function(){
      * Set a value that you can retrieve later
      * even when you refreshing the page!
      *
-     * @method set
+     * @method setItem
      * @param {String} key
      * @param {String} value
      * @return {Boolean} Saved or not
@@ -84,13 +84,13 @@ var R7Storage = (function(){
     /**
      * Get a value from a key that have been saved before
      *
-     * @method get
+     * @method getItem
      * @param {String} key
      * @return {String}
     **/
-    get: function(key) {
+    getItem: function(key) {
       if(!key) {
-        throw new Error("R7Storage.get(key): You need to enter the {key}!");
+        throw new Error("R7Storage.getItem(key): You need to enter the {key}!");
       }
 
       if (!this.has(key)) {
@@ -111,7 +111,7 @@ var R7Storage = (function(){
     /**
      * Delete a value saved using the key
      *
-     * @method delete
+     * @method deleteItem
      * @param {String} key
      * @return {Boolean} Deleted or not
     **/
