@@ -17,9 +17,9 @@
 *   R7Storage.get("user2"); //return false
 *   R7Storage.get(); //return Error
 *
-*   R7Storage.delete("user"); //return true
-*   R7Storage.delete("userFail"); //return false
-*   R7Storage.delete(); //return Error
+*   R7Storage.deleteItem("user"); //return true
+*   R7Storage.deleteItem("userFail"); //return false
+*   R7Storage.deleteItem(); //return Error
 *
 *   R7Storage.has("user"); //return true
 *   R7Storage.has("userFail"); //return false
@@ -69,7 +69,7 @@ var R7Storage = (function(){
 
       //replace the value of the key by deleting itself first
       if(this.has(key)) {
-        this.delete(key);
+        this.deleteItem(key);
       }
 
       if(!this.supportsLocalStorage()) {
@@ -115,9 +115,9 @@ var R7Storage = (function(){
      * @param {String} key
      * @return {Boolean} Deleted or not
     **/
-    delete: function(key) {
+    deleteItem: function(key) {
       if(!key) {
-        throw new Error("R7Storage.delete(key): You need to enter the {key}!");
+        throw new Error("R7Storage.deleteItem(key): You need to enter the {key}!");
       }
 
       if (!this.has(key)) {
