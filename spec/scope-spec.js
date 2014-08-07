@@ -16,8 +16,8 @@ describe("[[R7Storage]]", function() {
       expect(typeof R7Storage.deleteItem).toBe("function");
     });
 
-    it("Must have has() method", function() {
-      expect(typeof R7Storage.has).toBe("function");
+    it("Must have hasItem() method", function() {
+      expect(typeof R7Storage.hasItem).toBe("function");
     });
   });
 });
