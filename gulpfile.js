@@ -4,35 +4,39 @@ var gulp   = require('gulp'),
     rename = require('gulp-rename');
 
 var GulpApp = {
-  testFiles: [
-    'src/r7storage.js',
-    'spec/*.js'
-  ],
+  config: {
+    testFiles: [
+      'src/r7storage.js',
+      'spec/*.js'
+    ],
 
-  action: "run",
+    action: "run"
+  },
 
   test: function() {
-    return gulp.src(GulpApp.testFiles).pipe(
-      karma({
-        configFile: 'karma.conf.js',
-        action: GulpApp.action
-      })
-    );
+    return gulp.src(GulpApp.config.testFiles)
+      .pipe(
+        karma({
+          configFile: 'karma.conf.js',
+          action: GulpApp.config.action
+        })
+      );
   },
 
   default: function() {
-    GulpApp.action = "watch";
+    GulpApp.config.action = "watch";
     return GulpApp.test();
   },
 
   build: function() {
-    return gulp.src(GulpApp.testFiles[0])
-      .pipe(uglify())
-      .pipe(rename({ suffix: '.min' }))
-      .pipe(gulp.dest('src/'));
+    return gulp.src(GulpApp.config.testFiles[0])
+     .pipe(uglify())
+     .pipe(rename({ suffix: '.min' }))
+     .pipe(gulp.dest('src/'));
   }
 };
 
 gulp.task('test', GulpApp.test);
 gulp.task('default', GulpApp.default);
-gulp.task('build', ['test'], GulpApp.build);
+gulp.task('compress', GulpApp.build);
+gulp.task('build', ['test', 'compress']);
