@@ -8,8 +8,8 @@ describe("[[R7Storage]]", function() {
       expect(typeof R7Storage.setItem).toBe("function");
     });
 
-    it("Must have get() method", function() {
-      expect(typeof R7Storage.get).toBe("function");
+    it("Must have getItem() method", function() {
+      expect(typeof R7Storage.getItem).toBe("function");
     });
 
     it("Must have deleteItem() method", function() {
