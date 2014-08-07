@@ -1,4 +1,4 @@
-describe("[R7Storage]", function() {
+describe("[[R7Storage]]", function() {
   describe("[Setting Values]", function() {
     it("Setting string key a string value", function() {
       expect(R7Storage.setItem("key", "value")).toBeTruthy();
