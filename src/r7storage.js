@@ -21,9 +21,9 @@
 *   R7Storage.deleteItem("userFail"); //return false
 *   R7Storage.deleteItem(); //return Error
 *
-*   R7Storage.has("user"); //return true
-*   R7Storage.has("userFail"); //return false
-*   R7Storage.has(); //return Error
+*   R7Storage.hasItem("user"); //return true
+*   R7Storage.hasItem("userFail"); //return false
+*   R7Storage.hasItem(); //return Error
 *
 *
 * @main R7Storage
@@ -68,7 +68,7 @@ var R7Storage = (function(){
       }
 
       //replace the value of the key by deleting itself first
-      if(this.has(key)) {
+      if(this.hasItem(key)) {
         this.deleteItem(key);
       }
 
@@ -93,7 +93,7 @@ var R7Storage = (function(){
         throw new Error("R7Storage.getItem(key): You need to enter the {key}!");
       }
 
-      if (!this.has(key)) {
+      if (!this.hasItem(key)) {
         return false;
       }
 
@@ -120,7 +120,7 @@ var R7Storage = (function(){
         throw new Error("R7Storage.deleteItem(key): You need to enter the {key}!");
       }
 
-      if (!this.has(key)) {
+      if (!this.hasItem(key)) {
         return false;
       }
 
@@ -136,11 +136,11 @@ var R7Storage = (function(){
     /**
      * Verify if the key exists
      *
-     * @method has
+     * @method hasItem
      * @param {String} key
      * @return {Boolean} Has the key or not
     **/
-    has: function(key) {
+    hasItem: function(key) {
       if(!key) {
         throw new Error("R7Storage.has(key): You need to enter the {key}!");
       }
