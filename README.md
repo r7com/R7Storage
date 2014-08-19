@@ -18,9 +18,9 @@ It uses localStorage with fallback to cookies.
 	R7Storage.setItem("user"); //return Error
 	R7Storage.setItem(); //return Error
 
-	R7Storage.get("user"); //return "Guilherme"
-	R7Storage.get("user2"); //return false
-	R7Storage.get(); //return Error
+	R7Storage.getItem("user"); //return "Guilherme"
+	R7Storage.getItem("user2"); //return false
+	R7Storage.getItem(); //return Error
 
 	R7Storage.deleteItem("user"); //return true
 	R7Storage.deleteItem("userFail"); //return false
