@@ -73,7 +73,13 @@ var R7Storage = (function(){
       }
 
       if(!this.supportsLocalStorage()) {
-        document.cookie = escape(key) + "=" + escape(value) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+        var cookies = escape(key) + "=" + escape(value) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+
+        if(cookies.length > 4090) {
+          throw new Error("R7Storage.set(): Storage is out of memory. Try adding less data.");
+        }
+
+        document.cookie =
       } else {
         localStorage.setItem(key, value);
       }
