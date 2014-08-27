@@ -79,7 +79,7 @@ var R7Storage = (function(){
           throw new Error("R7Storage.set(): Storage is out of memory. Try adding less data.");
         }
 
-        document.cookie =
+        document.cookie = cookies;
       } else {
         localStorage.setItem(key, value);
       }
