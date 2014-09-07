@@ -1,7 +1,7 @@
-var gulp   = require('gulp'),
-    karma  = require('gulp-karma'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+var gulp   = require('gulp');
+var karma  = require('gulp-karma');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 var GulpApp = {
   config: {
