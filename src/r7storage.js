@@ -34,7 +34,43 @@
 var R7Storage = (function(){
   "use strict";
 
+  var contains = function(obj, value){
+    if(!obj) return false;
+
+    for(var i, l = obj.length; i < l; i++) {
+      if (obj[i] == value) return true;
+    }
+
+    return false;
+  };
+
   var application = {
+
+   /**
+     * Set the tecnology that will be used
+     * store data.
+     *
+     * @property type
+     * @default ""
+     * @type String
+     * @return {Boolean} Has feature or not
+    **/
+    type: "",
+
+   /**
+     * Set the tecnology that will be used
+     * store data.
+     *
+     * @method use
+     * @return {Boolean} Has feature or not
+    **/
+    use: function(type){
+      var supportedTypes = ["cookies", "localStorage"];
+
+      if(type && contains(supportedTypes, type)) {
+        application.type = type;
+      }
+    },
 
     /**
      * Feature detection of localStorage.
@@ -72,7 +108,7 @@ var R7Storage = (function(){
         this.deleteItem(key);
       }
 
-      if(!this.supportsLocalStorage()) {
+      if(!this.supportsLocalStorage() || this.type === "cookies") {
         var cookies = escape(key) + "=" + escape(value) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
 
         if(cookies.length > 4090) {
@@ -105,7 +141,7 @@ var R7Storage = (function(){
 
       var keyReturned;
 
-      if(!this.supportsLocalStorage()) {
+      if(!this.supportsLocalStorage() || this.type === "cookies") {
         keyReturned = unescape(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + escape(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
       } else {
         keyReturned = localStorage.getItem(key);
@@ -130,7 +166,7 @@ var R7Storage = (function(){
         return false;
       }
 
-      if(!this.supportsLocalStorage()) {
+      if(!this.supportsLocalStorage() || this.type === "cookies") {
         document.cookie = escape(key) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
       } else {
         localStorage.removeItem(key);
@@ -153,7 +189,7 @@ var R7Storage = (function(){
 
       var hasKey;
 
-      if(!this.supportsLocalStorage()) {
+      if(!this.supportsLocalStorage() && this.type === "cookies" ) {
         hasKey = (new RegExp("(?:^|;\\s*)" + escape(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
       } else {
         hasKey = localStorage.hasOwnProperty(key);
