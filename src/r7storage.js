@@ -47,7 +47,7 @@ var R7Storage = (function(){
   var application = {
 
    /**
-     * Set the tecnology that will be used
+     * Set the tecnology that will be used to
      * store data.
      *
      * @property type
