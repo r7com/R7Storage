@@ -1,6 +1,6 @@
 {
   "name": "r7storage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Storage data in client side by using localStorage with fallback to cookies!",
   "main": "gulpfile.js",
   "author": "Guilherme Pontes",
