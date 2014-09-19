@@ -37,8 +37,8 @@ var R7Storage = (function(){
   var contains = function(obj, value){
     if(!obj) return false;
 
-    for(var i, l = obj.length; i < l; i++) {
-      if (obj[i] == value) return true;
+    for(var i = 0, l = obj.length; i < l; i++) {
+      if (obj[i] === value) return true;
     }
 
     return false;
