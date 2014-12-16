@@ -35,8 +35,6 @@ var R7Storage = (function(){
   "use strict";
 
   var contains = function(obj, value){
-    if(!obj) return false;
-
     for(var i = 0, l = obj.length; i < l; i++) {
       if (obj[i] === value) return true;
     }
