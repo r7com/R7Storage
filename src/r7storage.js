@@ -1,5 +1,5 @@
 /*jslint nomen: true, white: true*/
-/*global $, _, window, document, localStorage, unescape, escape*/
+/*global window, document, unescape, escape*/
 
 /**
 * R7Storage handles data storage in the client side,
@@ -31,15 +31,11 @@
 * @class R7Storage
 * @constructor
 */
-var R7Storage = (function(){
-  "use strict";
+var R7Storage = R7Storage || (function(){
+  'use strict';
 
-  var contains = function(obj, value){
-    for(var i = 0, l = obj.length; i < l; i++) {
-      if (obj[i] === value) return true;
-    }
-
-    return false;
+  var contains = function(arr, value){
+    return !!~arr.indexOf(value);
   };
 
   var application = {
@@ -53,7 +49,7 @@ var R7Storage = (function(){
      * @type String
      * @return {Boolean} Has feature or not
     **/
-    type: "",
+    type: '',
 
    /**
      * Set the tecnology that will be used
@@ -63,7 +59,7 @@ var R7Storage = (function(){
      * @return {Boolean} Has feature or not
     **/
     use: function(type){
-      var supportedTypes = ["cookies", "localStorage"];
+      var supportedTypes = ['cookies', 'localStorage'];
 
       if(type && contains(supportedTypes, type)) {
         application.type = type;
@@ -97,8 +93,8 @@ var R7Storage = (function(){
      * @return {Boolean} Saved or not
     **/
     setItem: function(key, value) {
-      if(!key || typeof value === "undefined") {
-        throw new Error("R7Storage.set(key, value): You need to enter the {key} and the {value}!");
+      if(!key || typeof value === 'undefined') {
+        throw new Error('R7Storage.set(key, value): You need to enter the {key} and the {value}!');
       }
 
       //replace the value of the key by deleting itself first
@@ -106,11 +102,11 @@ var R7Storage = (function(){
         this.deleteItem(key);
       }
 
-      if(!this.supportsLocalStorage() || this.type === "cookies") {
-        var cookies = escape(key) + "=" + escape(value) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+      if(!this.supportsLocalStorage() || this.type === 'cookies') {
+        var cookies = escape(key) + '=' + escape(value) + '; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/';
 
         if(cookies.length > 4090) {
-          throw new Error("R7Storage.set(): Storage is out of memory. Try adding less data.");
+          throw new Error('R7Storage.set(): Storage is out of memory. Try adding less data.');
         }
 
         document.cookie = cookies;
@@ -130,7 +126,7 @@ var R7Storage = (function(){
     **/
     getItem: function(key) {
       if(!key) {
-        throw new Error("R7Storage.getItem(key): You need to enter the {key}!");
+        throw new Error('R7Storage.getItem(key): You need to enter the {key}!');
       }
 
       if (!this.hasItem(key)) {
@@ -139,8 +135,8 @@ var R7Storage = (function(){
 
       var keyReturned;
 
-      if(!this.supportsLocalStorage() || this.type === "cookies") {
-        keyReturned = unescape(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + escape(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
+      if(!this.supportsLocalStorage() || this.type === 'cookies') {
+        keyReturned = unescape(document.cookie.replace(new RegExp('(?:^|.*;\\s*)' + escape(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*'), '$1'));
       } else {
         keyReturned = localStorage.getItem(key);
       }
@@ -157,15 +153,15 @@ var R7Storage = (function(){
     **/
     deleteItem: function(key) {
       if(!key) {
-        throw new Error("R7Storage.deleteItem(key): You need to enter the {key}!");
+        throw new Error('R7Storage.deleteItem(key): You need to enter the {key}!');
       }
 
       if (!this.hasItem(key)) {
         return false;
       }
 
-      if(!this.supportsLocalStorage() || this.type === "cookies") {
-        document.cookie = escape(key) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      if(!this.supportsLocalStorage() || this.type === 'cookies') {
+        document.cookie = escape(key) + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       } else {
         localStorage.removeItem(key);
       }
@@ -182,13 +178,13 @@ var R7Storage = (function(){
     **/
     hasItem: function(key) {
       if(!key) {
-        throw new Error("R7Storage.has(key): You need to enter the {key}!");
+        throw new Error('R7Storage.has(key): You need to enter the {key}!');
       }
 
       var hasKey;
 
-      if(!this.supportsLocalStorage() && this.type === "cookies") {
-        hasKey = (new RegExp("(?:^|;\\s*)" + escape(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+      if(!this.supportsLocalStorage() && this.type === 'cookies') {
+        hasKey = (new RegExp('(?:^|;\\s*)' + escape(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
       } else {
         hasKey = localStorage.hasOwnProperty(key);
       }
