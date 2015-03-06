@@ -1,9 +1,7 @@
 describe("[[R7Storage]]", function() {
-  'use strict';
   describe("[Getting Values from Cookies]", function() {
     beforeEach(function(){
       R7Storage.use('cookies');
-      R7Storage.setItem("name", "Guilherme");
       R7Storage.setItem("name", "Guilherme");
       R7Storage.setItem("anumber", 123);
       R7Storage.setItem("aboolean", false);

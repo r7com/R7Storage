@@ -2,7 +2,6 @@ describe("[[R7Storage]]", function() {
   describe("[Getting Values]", function() {
     beforeEach(function(){
       R7Storage.setItem("name", "Guilherme");
-      R7Storage.setItem("name", "Guilherme");
       R7Storage.setItem("anumber", 123);
       R7Storage.setItem("aboolean", false);
       R7Storage.setItem(123, "onetwothree");
