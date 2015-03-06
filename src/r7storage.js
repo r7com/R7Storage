@@ -183,7 +183,7 @@ var R7Storage = R7Storage || (function(){
 
       var hasKey;
 
-      if(!this.supportsLocalStorage() && this.type === 'cookies') {
+      if(!this.supportsLocalStorage() || this.type === 'cookies') {
         hasKey = (new RegExp('(?:^|;\\s*)' + escape(key).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
       } else {
         hasKey = localStorage.hasOwnProperty(key);
