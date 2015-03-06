@@ -1,10 +1,15 @@
 describe("[[R7Storage]]", function() {
-  describe("[Getting Values]", function() {
+  describe("[Getting Values from Cookies]", function() {
     beforeEach(function(){
+      R7Storage.use('cookies');
       R7Storage.setItem("name", "Guilherme");
       R7Storage.setItem("anumber", 123);
       R7Storage.setItem("aboolean", false);
       R7Storage.setItem(123, "onetwothree");
+    });
+
+    afterEach(function() {
+      R7Storage.type = '';
     });
 
     it("Should return properly the string value", function() {
